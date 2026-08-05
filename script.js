@@ -1,64 +1,66 @@
-const SITE = {
-  contactEmail: "hello@thefarmersbrown.com",
-  instagramUrl: "https://instagram.com/thefarmersbrown"
-};
+const navToggle = document.querySelector('.nav-toggle');
+const siteNav = document.querySelector('#site-nav');
 
-const navToggle = document.querySelector(".nav-toggle");
-const nav = document.querySelector(".site-nav");
-
-navToggle?.addEventListener("click", () => {
-  const isOpen = nav.classList.toggle("open");
-  navToggle.setAttribute("aria-expanded", String(isOpen));
-});
-
-nav?.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("open");
-    navToggle?.setAttribute("aria-expanded", "false");
+if (navToggle && siteNav) {
+  navToggle.addEventListener('click', () => {
+    const open = siteNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(open));
   });
-});
 
-document.querySelectorAll("[data-email-link]").forEach((link) => {
-  link.href = `mailto:${SITE.contactEmail}`;
-  if (link.textContent.includes("@")) link.textContent = SITE.contactEmail;
-});
+  siteNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      siteNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
 
-document.querySelectorAll("[data-instagram-link]").forEach((link) => {
-  link.href = SITE.instagramUrl;
-});
+const revealItems = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealItems.forEach((item) => observer.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add('visible'));
+}
 
-document.querySelector("#year").textContent = new Date().getFullYear();
+const year = document.querySelector('#year');
+if (year) year.textContent = new Date().getFullYear();
 
-const quoteForm = document.querySelector("#quote-form");
-quoteForm?.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const data = new FormData(quoteForm);
-  const subject = `Website quote request: ${data.get("project")}`;
-  const body = [
-    `Name: ${data.get("name")}`,
-    `Email: ${data.get("email")}`,
-    `Project: ${data.get("project")}`,
-    "",
-    "Project details:",
-    data.get("details"),
-    "",
-    "I can attach photos to this email before sending."
-  ].join("\n");
-  window.location.href = `mailto:${SITE.contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-});
+const quoteForm = document.querySelector('#quote-form');
+if (quoteForm) {
+  quoteForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(quoteForm);
+    const name = String(data.get('name') || '').trim();
+    const email = String(data.get('email') || '').trim();
+    const project = String(data.get('project') || '').trim();
+    const growing = String(data.get('growing') || '').trim();
+    const details = String(data.get('details') || '').trim();
 
-const observer = "IntersectionObserver" in window
-  ? new IntersectionObserver((entries, obs) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 })
-  : null;
+    const subject = encodeURIComponent(`Garden inquiry from ${name || 'a Tampa Bay neighbor'}`);
+    const body = encodeURIComponent([
+      'Hi Tyler and Amanda,',
+      '',
+      `My name: ${name}`,
+      `My email: ${email}`,
+      `I am interested in: ${project}`,
+      `I would like to grow: ${growing || 'Not sure yet'}`,
+      '',
+      'My space and goal:',
+      details,
+      '',
+      'I can attach photos of the space to this email.',
+      '',
+      'Thanks!'
+    ].join('\n'));
 
-document.querySelectorAll(".reveal").forEach((element) => {
-  if (observer) observer.observe(element);
-  else element.classList.add("visible");
-});
+    window.location.href = `mailto:hello@thefarmersbrown.com?subject=${subject}&body=${body}`;
+  });
+}
