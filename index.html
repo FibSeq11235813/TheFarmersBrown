@@ -334,13 +334,15 @@
           <p class="eyebrow light">Let’s grow something useful</p>
           <h2>Tell us about<br><em>your space.</em></h2>
           <p>Share a few details and we will follow up to discuss the right setup, available starters, timing, and pricing.</p>
-          <div class="contact-details">
-            <a data-instagram-link href="https://instagram.com/thefarmersbrown" target="_blank" rel="noreferrer">@thefarmersbrown</a>
-            <span>Tampa Bay, Florida</span>
+          <div class="form-only-note">
+            <strong>All inquiries start here.</strong>
+            <span>To keep our inbox useful and cut down on solicitation spam, we do not publish direct contact details. Send the form and we’ll reply to you directly.</span>
           </div>
         </div>
 
-        <form class="quote-form reveal" id="quote-form">
+        <form class="quote-form reveal" id="quote-form" action="https://formspree.io/f/xwleegod" method="POST">
+          <input type="text" name="_gotcha" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <input type="hidden" name="_subject" value="New Farmers Brown garden request" />
           <div class="form-row">
             <label>Name<input required name="name" autocomplete="name" placeholder="Your name" /></label>
             <label>Email<input required type="email" name="email" autocomplete="email" placeholder="you@example.com" /></label>
@@ -361,8 +363,8 @@
           <label>Tell us about your space and goal
             <textarea required name="details" rows="5" placeholder="Approximate size, sunlight, where it will go, what you already have, and how hands-on you want to be..."></textarea>
           </label>
-          <button class="button button-rust" type="submit">Start my garden plan</button>
-          <p class="form-note">This opens a pre-filled email so you can add photos before sending.</p>
+          <button class="button button-rust" type="submit">Send my garden request</button>
+          <p class="form-note">Your request will be sent directly to Tyler and Amanda. We’ll follow up by email.</p>
         </form>
       </div>
     </section>
@@ -378,8 +380,7 @@
         <a href="#services">What we do</a><a href="#garden-in-a-day">Garden-in-a-Day</a><a href="#about">Our story</a><a href="#quote">Plan a garden</a>
       </div>
       <div class="footer-social">
-        <a data-instagram-link href="https://instagram.com/thefarmersbrown" target="_blank" rel="noreferrer">Instagram ↗</a>
-        <a data-email-link href="mailto:hello@thefarmersbrown.com">Email us ↗</a>
+        <a href="#quote">Request a quote ↑</a>
       </div>
     </div>
     <div class="wrap footer-bottom"><span>© <span id="year"></span> The Farmers Brown</span><span>Build. Plant. Grow. — Tampa Bay, Florida</span></div>

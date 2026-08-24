@@ -32,35 +32,3 @@ if ('IntersectionObserver' in window) {
 
 const year = document.querySelector('#year');
 if (year) year.textContent = new Date().getFullYear();
-
-const quoteForm = document.querySelector('#quote-form');
-if (quoteForm) {
-  quoteForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const data = new FormData(quoteForm);
-    const name = String(data.get('name') || '').trim();
-    const email = String(data.get('email') || '').trim();
-    const project = String(data.get('project') || '').trim();
-    const growing = String(data.get('growing') || '').trim();
-    const details = String(data.get('details') || '').trim();
-
-    const subject = encodeURIComponent(`Garden inquiry from ${name || 'a Tampa Bay neighbor'}`);
-    const body = encodeURIComponent([
-      'Hi Tyler and Amanda,',
-      '',
-      `My name: ${name}`,
-      `My email: ${email}`,
-      `I am interested in: ${project}`,
-      `I would like to grow: ${growing || 'Not sure yet'}`,
-      '',
-      'My space and goal:',
-      details,
-      '',
-      'I can attach photos of the space to this email.',
-      '',
-      'Thanks!'
-    ].join('\n'));
-
-    window.location.href = `mailto:hello@thefarmersbrown.com?subject=${subject}&body=${body}`;
-  });
-}
