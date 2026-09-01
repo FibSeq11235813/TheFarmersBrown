@@ -306,15 +306,7 @@ h3 { margin-bottom: 14px; font-size: 1.42rem; }
 .about-section { overflow: hidden; }
 .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 90px; align-items: center; }
 .about-art { display: grid; place-items: center; }
-.portrait-seal { position: relative; width: min(470px, 100%); aspect-ratio: 1; background: #e4c87e; border: 4px solid var(--ink); border-radius: 50%; box-shadow: 17px 17px 0 var(--rust); }
-.portrait-seal svg { position: absolute; inset: 4%; width: 92%; height: 92%; }
-.portrait-seal text { fill: var(--ink); font-family: var(--sans); font-size: 23px; font-weight: 900; letter-spacing: 5px; }
-.portrait-heads { position: absolute; inset: 20%; display: flex; align-items: center; justify-content: center; gap: 6px; }
-.portrait-one, .portrait-two { position: relative; width: 120px; height: 178px; background: var(--forest); border-radius: 55% 55% 44% 44%; }
-.portrait-one::before, .portrait-two::before { content: ""; position: absolute; width: 82px; height: 93px; left: 19px; top: 30px; background: var(--sand); border-radius: 48% 48% 44% 44%; }
-.portrait-one::after { content: ""; position: absolute; left: 17px; top: 18px; width: 90px; height: 42px; border-radius: 50% 50% 15% 15%; background: var(--forest-deep); }
-.portrait-two { height: 184px; background: var(--rust); }
-.portrait-two::after { content: ""; position: absolute; inset: 6px 8px auto; height: 94px; border-radius: 50% 50% 20% 20%; border: 15px solid #70452f; border-bottom: 0; }
+.about-portrait { display: block; width: min(470px, 100%); height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 50%; box-shadow: 17px 17px 0 var(--rust); }
 .about-copy p:not(.eyebrow) { max-width: 690px; font-size: 1.05rem; }
 .about-note { padding: 20px 22px; margin: 27px 0; border-left: 5px solid var(--rust); background: rgba(216, 195, 155, .24); font-weight: 800; }
 
@@ -359,7 +351,7 @@ h3 { margin-bottom: 14px; font-size: 1.42rem; }
   .service-card, .service-card:nth-child(4), .service-card:nth-child(5) { grid-column: span 3; }
   .garden-day-grid, .florida-grid, .about-grid, .quote-grid { gap: 58px; }
   .garden-day-poster { max-width: 660px; margin-inline: auto; }
-  .calendar-card, .portrait-seal { margin-inline: auto; }
+  .calendar-card, .about-portrait { margin-inline: auto; }
 }
 
 @media (max-width: 780px) {
@@ -412,11 +404,6 @@ h3 { margin-bottom: 14px; font-size: 1.42rem; }
   .season-dial i:nth-child(2) { top: 83px; }
   .season-dial i:nth-child(3) { left: 74px; }
   .season-dial i:nth-child(4) { top: 83px; }
-  .portrait-heads { inset: 23%; }
-  .portrait-one, .portrait-two { width: 90px; height: 135px; }
-  .portrait-one::before, .portrait-two::before { width: 62px; height: 70px; left: 14px; top: 23px; }
-  .portrait-one::after { left: 13px; top: 13px; width: 68px; height: 34px; }
-  .portrait-two::after { height: 72px; border-width: 11px; }
   .form-row { grid-template-columns: 1fr; gap: 0; }
   .quote-form { padding: 23px; box-shadow: 8px 8px 0 var(--rust); }
   .footer-grid { grid-template-columns: 1fr; gap: 30px; }
