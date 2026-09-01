@@ -4,7 +4,9 @@ A static, GitHub/Render-ready site for The Farmers Brown.
 
 ## Files
 
-- `index.html` — page structure and content
+- `index.html` — main site, now with giveaway campaign promotion
+- `giveaway.html` — dedicated pre-launch garden bed giveaway landing page
+- `official-rules.html` — pre-launch rules/status page; replace with reviewed final Official Rules before accepting entries
 - `styles.css` — full responsive design
 - `script.js` — mobile navigation, reveal effects, and current year
 - `assets/favicon.svg` — browser icon
@@ -33,3 +35,15 @@ The quote form submits directly to Formspree using:
 - Method: `POST`
 
 All customer-facing form fields include `name` attributes, so their values will be included in each Formspree submission.
+
+## Giveaway campaign status
+
+The giveaway is intentionally shipped in **PRE-LAUNCH** mode.
+
+- The email form on `giveaway.html` is a launch-alert signup only; it is explicitly not an entry form.
+- Current purchases do not earn entries.
+- `official-rules.html` lists the items that must be finalized before launch.
+- Before accepting sweepstakes entries, finalize the eligible area, dates, exact prize + ARV, free alternative method of entry, any purchase-related promotional-entry mechanics, winner-selection process, privacy terms, and any required state filings/bonding.
+- Have the final structure and Official Rules reviewed for every jurisdiction in which the promotion will be offered.
+
+Once those pieces are final, replace the pre-launch copy rather than merely removing the words “coming soon.” The entry form/process should match the reviewed Official Rules exactly.
