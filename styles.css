@@ -806,7 +806,12 @@ h3 { margin-bottom: 14px; font-size: 1.42rem; }
   border: 1px solid rgba(168,91,50,.2); color: var(--rust); font-size: .72rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase;
 }
 
-.root-feature-section { background: var(--forest-deep); color: var(--cream); }
+.root-feature-section .mini-benefits span {
+  color: var(--forest-deep);
+  background: var(--cream);
+  border: 1px solid rgba(245, 234, 213, .45);
+  font-weight: 900;
+}
 .root-feature-grid { display: grid; grid-template-columns: .92fr 1.08fr; gap: 60px; align-items: center; }
 .root-feature-copy p:not(.eyebrow) { color: rgba(245,234,213,.82); max-width: 620px; }
 .root-feature-art { margin: 0; }
