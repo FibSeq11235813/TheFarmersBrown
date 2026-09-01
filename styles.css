@@ -820,8 +820,6 @@ h3 { margin-bottom: 14px; font-size: 1.42rem; }
 .footer-links a { opacity: .9; }
 .footer-links a:hover, .footer-social a:hover { color: #f2c779; }
 
-.hero-lockup { width: min(420px, 100%); margin: 0 0 18px; }
-
 @media (max-width: 950px) {
   .lineup-card, .lineup-card-wide { grid-column: span 3; }
   .root-feature-grid { grid-template-columns: 1fr; gap: 38px; }
@@ -832,4 +830,64 @@ h3 { margin-bottom: 14px; font-size: 1.42rem; }
   .brand-text small { font-size: .55rem; letter-spacing: .13em; }
   .lineup-grid { grid-template-columns: 1fr; }
   .lineup-card, .lineup-card-wide { grid-column: auto; }
+}
+
+/* --- Hero logo watermark treatment --- */
+.hero,
+.giveaway-hero {
+  isolation: isolate;
+}
+
+.hero::before,
+.giveaway-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  background: url("assets/logo-watermark.png") center / contain no-repeat;
+  opacity: .075;
+  filter: saturate(.8);
+}
+
+.hero::before {
+  width: min(860px, 72vw);
+  aspect-ratio: 1142 / 643;
+  left: clamp(-190px, -8vw, -70px);
+  top: 46%;
+  transform: translateY(-50%) rotate(-2deg);
+}
+
+.giveaway-hero::before {
+  width: min(780px, 68vw);
+  aspect-ratio: 1142 / 643;
+  left: clamp(-150px, -5vw, -35px);
+  top: 49%;
+  transform: translateY(-50%) rotate(-1.5deg);
+  opacity: .06;
+}
+
+.hero-grid,
+.giveaway-hero-grid {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 950px) {
+  .hero::before,
+  .giveaway-hero::before {
+    width: 880px;
+    left: 50%;
+    top: 31%;
+    transform: translate(-50%, -50%) rotate(-2deg);
+    opacity: .055;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero::before,
+  .giveaway-hero::before {
+    width: 700px;
+    top: 23%;
+    opacity: .04;
+  }
 }
