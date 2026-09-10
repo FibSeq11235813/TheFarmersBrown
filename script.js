@@ -1,34 +1,6 @@
-const navToggle = document.querySelector('.nav-toggle');
-const siteNav = document.querySelector('#site-nav');
-
-if (navToggle && siteNav) {
-  navToggle.addEventListener('click', () => {
-    const open = siteNav.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', String(open));
-  });
-
-  siteNav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      siteNav.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-}
-
-const revealItems = document.querySelectorAll('.reveal');
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  revealItems.forEach((item) => observer.observe(item));
-} else {
-  revealItems.forEach((item) => item.classList.add('visible'));
-}
-
-const year = document.querySelector('#year');
-if (year) year.textContent = new Date().getFullYear();
+const toggle=document.querySelector('.nav-toggle');
+const nav=document.querySelector('.site-nav');
+if(toggle&&nav){toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}));}
+const year=document.getElementById('year');if(year)year.textContent=new Date().getFullYear();
+const lane=document.querySelector('select[name="lane"]');const project=document.querySelector('select[name="project"]');
+if(lane&&project){const options={Build:['Raised or elevated garden bed','Custom table / potting bench','Garage or home organization','Custom woodworking / structure','Other build project'],Plant:['Starter plants / seedlings','Herbs or edible plants','Seasonal garden kit','Garden planting / refresh','Produce or nursery availability'],Grow:['Garden planning / coaching','Garden-in-a-Day','Garden troubleshooting / seasonal care','Nutrition services / education (future availability)','Small-business / digital help','Not sure — help me choose']};lane.addEventListener('change',()=>{project.innerHTML='';(options[lane.value]||['Not sure — help me choose']).forEach(v=>{const o=document.createElement('option');o.textContent=v;project.appendChild(o);});});}
